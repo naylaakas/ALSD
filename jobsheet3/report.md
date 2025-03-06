@@ -3,7 +3,7 @@
 | NIM |  244107020038|
 | Nama |  Nayla Akas Oktavia|
 | Kelas | TI - 1H |
-| Repository | [link] () |
+| Repository | [link] (https://github.com/naylaakas/ALSD/tree/main/jobsheet3) |
 
 # Jobsheet 3 - Array of Object
 ## Percobaan 1: Membuat Array dari Object, Mengisi dan Menampilkan
