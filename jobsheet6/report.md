@@ -55,6 +55,7 @@ A. Sorting - Bubble Sort
 ![Screenshot](output/p2bubble.png)
 
 B. Sorting - Selection Sort
+
 ![Screenshot](output/p2ss.png)
 
 *Jawaban Pertanyaan:*
