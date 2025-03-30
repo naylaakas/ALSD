@@ -25,7 +25,7 @@ public class DataDosen {
     void SortingASC() {
         if (idx > 1) {
             for (int i = 0; i < idx - 1; i++) {
-                for (int j = 1; j < idx - i; j++) {
+                for (int j = 0; j < idx - i - 1; j++) {
                     if (dataDosen[j] != null && dataDosen[j+1] != null && dataDosen[j].usia > dataDosen[j+1].usia) {
                         Dosen tmp = dataDosen[j];
                         dataDosen[j] = dataDosen[j+1];
