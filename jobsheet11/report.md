@@ -3,7 +3,7 @@
 | NIM |  244107020038|
 | Nama |  Nayla Akas Oktavia|
 | Kelas | TI - 1H |
-| Repository | [link] () |
+| Repository | [link] (https://github.com/naylaakas/ALSD/tree/main/jobsheet11) |
 
 # Jobsheet 11 - SINGLE LINKED LIST
 ## Percobaan 1: Pembuatan Single Linked List
@@ -35,15 +35,25 @@ berikut merupakan hasil running dari percobaan 2:
 # Latihan
 
 Membuat program antrian layanan unit kemahasiswaan
+Membuat class ```Mhs``` untuk menampung data mahasiswa dengan atribut NIM, Nama, dan kelas
+
+Membuat class ```NodeMhs``` yang merupakan implementasi dari sebuah node dalam struktur data linked list yang digunakan untuk menyimpan data mahasiswa
+
+Membuat class ```AntrianLayanan``` untuk menangani antrian layanan mahasiswa
+
+Membuat class ```AntrianLayananMain``` untuk menangani input dan output dari program antrian layanan mahasiswa
+
 berikut hasil running latihan:
 
-![Screenshot](output/1lat.png)
+![Screenshot](output/lat1.png)
 
-![Screenshot](output/2lat.png)
+![Screenshot](output/lat2.png)
 
-![Screenshot](output/3lat.png)
+![Screenshot](output/lat3.png)
 
-![Screenshot](output/4lat.png)
+![Screenshot](output/lat4.png)
+
+![Screenshot](output/lat5.png)
 
 
 

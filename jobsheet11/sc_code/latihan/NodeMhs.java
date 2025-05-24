@@ -1,6 +1,7 @@
 package jobsheet11.sc_code.latihan;
 
 public class NodeMhs {
+    
     Mhs data;
     NodeMhs next;
 

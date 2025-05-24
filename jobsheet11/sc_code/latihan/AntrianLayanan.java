@@ -48,7 +48,7 @@ public class AntrianLayanan {
     }
 
     public void tambah(Mhs data) {
-        if (!isFull()) {
+        if (isFull()) {
             System.out.println("Antrian penuh");
             return;
         }
