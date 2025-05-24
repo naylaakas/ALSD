@@ -10,7 +10,7 @@
 
 berikut merupakan hasil running dari percobaan 1:
 
-![Screenshot](output/p1.png) 
+![Screenshot](output/p1.png)
 
 *Jawaban Pertanyaan:* 
 
@@ -35,6 +35,7 @@ berikut merupakan hasil running dari percobaan 2:
 # Latihan
 
 Membuat program antrian layanan unit kemahasiswaan
+
 Membuat class ```Mhs``` untuk menampung data mahasiswa dengan atribut NIM, Nama, dan kelas
 
 Membuat class ```NodeMhs``` yang merupakan implementasi dari sebuah node dalam struktur data linked list yang digunakan untuk menyimpan data mahasiswa
