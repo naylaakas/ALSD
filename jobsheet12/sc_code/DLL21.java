@@ -3,10 +3,12 @@ package jobsheet12.sc_code;
 public class DLL21 {
     Node21 head;
     Node21 tail;
+    int size;
 
     public DLL21() {
         head = null;
         tail = null;
+        size = 0;
     }
 
     public boolean isEmpty() {
@@ -23,6 +25,7 @@ public class DLL21 {
             head.prev = newNode;
             head = newNode;
         }
+        size++;
     }
 
     public void addLast(Mahasiswa21 data) {
@@ -31,46 +34,41 @@ public class DLL21 {
             head = tail = newNode;
         }
         else {
-            tail.next = newNode;
             newNode.prev = tail;
             tail.next = newNode;
+            tail = newNode;
         }
+        size++;
     }
 
-    public void add(Mahasiswa21 item, int index) {
-        if (index < 0) {
-            System.out.println("Index tidak boleh negatif");
+    public void add(Mahasiswa21 data, int index) {
+        if (index < 0 || index > size) {
+            System.out.println("Index salah");
             return;
         }
-
         if (index == 0) {
-            addFirst(item);
+            addFirst(data);
+            return;
+        }
+        if (index == size) {
+            addLast(data);
             return;
         }
 
-        Node21 newNode = new Node21(item);
+        Node21 newNode = new Node21(data);
         Node21 current = head;
-        int currentIndex = 0;
 
-        while (current != null && currentIndex < index - 1) {
+        for (int i = 0; i < index; i++) {
             current = current.next;
-            currentIndex++;
         }
 
-        if (current == null) {
-            System.out.println("Index di luar batas");
-            return;
-        }
+        newNode.next = current;
+        newNode.prev = current.prev;
+        current.prev.next = newNode;
+        current.prev = newNode;
+        size++;
 
-        if (current == tail) {
-            addLast(item);
-        }
-        else {
-            newNode.next = current.next;
-            newNode.prev = current;
-            current.next.prev = newNode;
-            current.next = newNode;
-        }
+        System.out.println("Data berhasil ditambahkan pada indeks " + index);
     }
 
     public void removeFirst() {
@@ -78,6 +76,8 @@ public class DLL21 {
             System.out.println("List masih kosong, tidak bisa dihapus");
             return;
         }
+
+        Mahasiswa21 removed = head.data;
         if (head == tail) {
             head = tail = null;
         }
@@ -85,6 +85,10 @@ public class DLL21 {
             head = head.next;
             head.prev = null;
         }
+        size--;
+
+        System.out.println("Data yang dihapus: ");
+        removed.tampil();
     }
 
     public void removeLast() {
@@ -92,6 +96,8 @@ public class DLL21 {
             System.out.println("List masih kosong, tidak bisa dihapus");
             return;
         }
+
+        Mahasiswa21 removed = tail.data;
         if (head == tail) {
             head = tail = null;
         }
@@ -99,12 +105,75 @@ public class DLL21 {
             tail = tail.prev;
             tail.next = null;
         }
+        size--;
+
+        System.out.println("Data yang dihapus: ");
+        removed.tampil();
     }
 
-    public Node21 search(String nim) {
+    public void removeAfter(String keyNim) {
+        Node21 current = head;
+
+        while (current != null && !current.data.nim.equals(keyNim)) {
+            current = current.next;
+        }
+
+        if (current == null) {
+            System.out.println("Node dengan NIM " + keyNim + " tidak ditemukan");
+            return;
+        }
+
+        if (current.next == null) {
+            System.out.println("Tidak ada node setelah NIM " + keyNim);
+            return;
+        }
+
+        Node21 toDelete = current.next;
+
+        if (toDelete == tail) {
+            tail = current;
+            current.next = null;
+        } else {
+            current.next = toDelete.next;
+            toDelete.next.prev = current;
+        }
+        size--;
+
+        System.out.println("Data yang dihapus: ");
+        toDelete.data.tampil();
+    }
+
+    public void remove(int index) {
+        if (index < 0 || index >= size) {
+            System.out.println("Index tidak valid");
+            return;
+        }
+        if (index == 0) {
+            removeFirst();
+            return;
+        }
+        if (index == size - 1) {
+            removeLast();
+            return;
+        }
+
+        Node21 current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+
+        current.prev.next = current.next;
+        current.next.prev = current.prev;
+        size--;
+
+        System.out.println("Data yang dihapus: ");
+        current.data.tampil();
+    }
+
+    public Node21 search(String keyNim) {
         Node21 current = head;
         while (current != null) {
-            if (current.data.nim.equals(nim)) {
+            if (current.data.nim.equals(keyNim)) {
                 return current;
             }
             current = current.next;
@@ -140,6 +209,7 @@ public class DLL21 {
             current.next.prev = newNode;
             current.next = newNode;
         }
+        size++;
 
         System.out.println("Node berhasil disisipkan setelah NIM " + keyNim);
     }
@@ -156,5 +226,31 @@ public class DLL21 {
         else {
             System.out.println("Linked list masih kosong");
         }
+    }
+
+    public Node21 getFirst() {
+        return head;
+    }
+
+    public Node21 getLast() {
+        return tail;
+    }
+
+    public Mahasiswa21 getIndex(int index) {
+        if (index < 0 || index >= size) {
+            System.out.println("Indeks tidak valid");
+            return null;
+        }
+
+        Node21 current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+
+        return current.data;
+    }
+
+    public int size() {
+        return size;
     }
 }
